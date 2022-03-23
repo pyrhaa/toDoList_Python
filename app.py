@@ -40,7 +40,7 @@ def update(todo_id):
     return redirect(url_for('index'))
 
 
-@app.route('/delete/<int:todo_id>', methods=['DELETE'])
+@app.route('/delete/<int:todo_id>')
 def delete(todo_id):
     # delete a todo
     todo = Todo.query.filter_by(id=todo_id).first()
