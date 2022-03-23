@@ -19,6 +19,7 @@
 
     <!--make a for loop for each elements in todo and endfor for stopping the loop--!>
     {% for todo in todo_list %}
+    <div>
         <p>{{todo.id}} | {{todo.title}}</p>
         {% if todo.complete == False %}
             <span>Not completed</span>
@@ -26,6 +27,8 @@
             <span>Completed</span>
         {% endif %}
 
+        <button class="btn" onclick="location.href = '/update/{{ todo.id }}'">Update</button>
+    </div>
     {% endfor %}
   </body>
 </html>
