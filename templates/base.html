@@ -15,8 +15,15 @@
       </div>
     </form>
 
+    <!--make a for loop for each elements in todo and endfor for stopping the loop--!>
     {% for todo in todo_list %}
-    <p>{{todo.id}} | {{todo.title}}</p>
+        <p>{{todo.id}} | {{todo.title}}</p>
+        {% if todo.complete == False %}
+            <span>Not completed</span>
+        {% else %}
+            <span>Completed</span>
+        {% endif %}
+
     {% endfor %}
   </body>
 </html>
