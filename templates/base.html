@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo App</title>
-  </head>
-  <body>
-    <h1>My Todo List 2022</h1>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./static/styles.css" />
+        <script src="https://kit.fontawesome.com/29ee0bc57e.js" crossorigin="anonymous">
+        <title>Todo App</title>
+    </head>
+    <body>
+        <header>
+            <h1>My Todo List 2022</h1>
+            <!--the form action redirect to the add function in the app file and exectutes it--!>
+            <form action="/add" method="post">
+                <label for="title">New Todo</label>
+                <input type="text" name="title" placeholder="Enter a note..." />
+                <button type="submit">Add</button>
+            </form>
+        </header>
 
-    <!--the form action redirect to the add function in the app file and exectutes it--!>
-    <form action="/add" method="post">
-      <div>
-        <label for="title">New Todo</label>
-        <input type="text" name="title" placeholder="Enter a note..." />
-        <button type="submit">Add</button>
-      </div>
-    </form>
-
-    <ul>
-    <!--make a for loop for each elements in todo and endfor for stopping the loop--!>
-    {% for todo in todo_list %}
-    <li>
-        <p>{{todo.id}} | {{todo.title}}</p>
-        {% if todo.complete == False %}
-            <span>Not completed</span>
-        {% else %}
-            <span>Completed</span>
-        {% endif %}
-
-        <button class="btn" onclick="location.href = '/update/{{ todo.id }}'">Update</button>
-        <button class="btn" onclick="location.href = '/delete/{{ todo.id }}'">Delete</button>
-    </li>
-    {% endfor %}
-    </ul>
-
-  </body>
+        <ul id="myUl">
+            <!--make a for loop for each elements in todo and endfor for stopping the loop--!>
+            {% for todo in todo_list %}
+            <li>
+                <p>{{todo.title}}</p>
+                {% if todo.complete == False %}
+                <span>Not completed</span>
+                {% else %}
+                <span>Completed</span>
+                {% endif %}
+                <button class="btn1" onclick="location.href = '/update/{{ todo.id }}'">Update</button>
+                <button class="btn2" onclick="location.href = '/delete/{{ todo.id }}'">Delete</button>
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
 </html>
