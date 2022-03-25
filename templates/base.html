@@ -27,15 +27,22 @@
       <li>
         {% if todo.complete == False %}
         <p>{{todo.title}}</p>
-        {% else %}
-        <p class="checked">{{todo.title}}</p>
-        {% endif %}
         <button
           class="btn1 btn"
           onclick="location.href = '/update/{{ todo.id }}'"
         >
           <i class="fa fa-check"></i> Check
         </button>
+        {% else %}
+        <p class="checked">{{todo.title}}</p>
+        <button
+          class="btn1 btn"
+          onclick="location.href = '/update/{{ todo.id }}'"
+        >
+          <i class="fa fa-check"></i> Done
+        </button>
+        {% endif %}
+
         <button
           class="btn2 btn"
           onclick="location.href = '/delete/{{ todo.id }}'"
