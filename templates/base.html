@@ -25,11 +25,10 @@
       <!--make a for loop for each elements in todo and endfor for stopping the loop-->
       {% for todo in todo_list %}
       <li>
-        <p>{{todo.title}}</p>
         {% if todo.complete == False %}
-        <span>Not completed</span>
+        <p>{{todo.title}}</p>
         {% else %}
-        <span>Completed</span>
+        <p class="checked">{{todo.title}}</p>
         {% endif %}
         <button class="btn1" onclick="location.href = '/update/{{ todo.id }}'">
           <i class="fa fa-check"></i> Check
